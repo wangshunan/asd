@@ -28,11 +28,13 @@ namespace UnityStandardAssets.CrossPlatformInput
 		void OnEnable()
 		{
 			CreateVirtualAxes();
+			transform.position = GameObject.Find("StickController").transform.position;
+			m_StartPos = transform.position;
 		}
 
         void Start()
         {
-            m_StartPos = transform.position;
+            //m_StartPos = transform.position;
         }
 
 		void UpdateVirtualAxes(Vector3 value)
@@ -74,7 +76,6 @@ namespace UnityStandardAssets.CrossPlatformInput
 		public void OnDrag(PointerEventData data)
 		{
 			Vector3 newPos = Vector3.zero;
-
 
 			if ( (m_UseY) || (m_UseX) )
 			{
